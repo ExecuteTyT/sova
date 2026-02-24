@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+  --color-bg: #FAFAF7;
+  --color-bg-alt: #F2F0EB;
+  --color-bg-dark: #141414;
+  --color-bg-card: #FFFFFF;
+
+  --color-primary: #141414;
+  --color-primary-light: #2A2A2A;
+
+  --color-accent: #A36A3B;
+  --color-accent-hover: #8A5A32;
+  --color-accent-light: rgba(163, 106, 59, 0.05);
+
+  --color-text: #141414;
+  --color-text-secondary: #6B6B6B;
+  --color-text-white: #FAFAF7;
+
+  --color-success: #2D7A4F;
+  --color-border: rgba(20, 20, 20, 0.1);
+
+  --shadow-custom: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-custom-lg: 0 10px 40px rgba(0, 0, 0, 0.04);
+  --shadow-custom-hover: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+  }
+  h1, h2, .font-display {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/80 border border-black/5 rounded-sm shadow-custom;
+  }
+  .section-label {
+    @apply text-accent uppercase tracking-[3px] text-[13px] font-semibold mb-4 block;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
