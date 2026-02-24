@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from './ui/Button';
+import { PHONE, PHONE_RAW, WORK_HOURS } from '../lib/constants';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +26,7 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-[#141414]/95 backdrop-blur-md shadow-sm py-4 border-b border-white/5' : 'bg-transparent py-6'
+        scrolled ? 'bg-bg-dark/95 backdrop-blur-md shadow-sm py-4 border-b border-white/5' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -49,16 +50,16 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-6">
-          <a 
-            href="tel:+79990000000" 
+          <a
+            href={`tel:${PHONE_RAW}`}
             className={`flex items-center gap-2 text-lg font-semibold tracking-wide transition-colors duration-300 ${scrolled ? 'text-white hover:text-accent' : 'text-primary hover:text-accent'}`}
           >
             <Phone size={16} strokeWidth={2} />
-            +7 (999) 000-00-00
+            {PHONE}
           </a>
-          <Button 
+          <Button
             variant="primary"
-            className="!bg-accent !text-white !border-none !rounded-sm hover:!bg-[#8A4F23] transition-colors duration-300 shadow-none hover:shadow-none hover:translate-y-0"
+            flat
             onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Рассчитать стоимость
@@ -82,7 +83,7 @@ export default function Header() {
             animate={{ opacity: 1, clipPath: 'circle(150% at 100% 0)' }}
             exit={{ opacity: 0, clipPath: 'circle(0% at 100% 0)' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[999] bg-[#141414] flex flex-col h-[100dvh] px-6 py-8 overflow-hidden"
+            className="fixed inset-0 z-[999] bg-bg-dark flex flex-col h-[100dvh] px-6 py-8 overflow-hidden"
           >
             {/* Decorative background elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
@@ -125,18 +126,19 @@ export default function Header() {
             >
               <div className="mb-8">
                 <p className="text-white/40 text-[10px] uppercase tracking-widest mb-3">Связаться с нами</p>
-                <a href="tel:+79990000000" className="block text-3xl text-white font-sans mb-1 tracking-tight">
-                  +7 (999) 000-00-00
+                <a href={`tel:${PHONE_RAW}`} className="block text-3xl text-white font-sans mb-1 tracking-tight">
+                  {PHONE}
                 </a>
                 <p className="text-white/60 text-sm">
-                  Ежедневно с 9:00 до 20:00
+                  {WORK_HOURS}
                 </p>
               </div>
 
-              <Button 
-                fullWidth 
+              <Button
+                fullWidth
                 variant="primary"
-                className="!bg-accent !text-white !border-none !rounded-sm hover:!bg-[#8A4F23] transition-colors duration-300 shadow-none hover:shadow-none hover:translate-y-0 !py-4 text-lg"
+                size="large"
+                flat
                 onClick={() => {
                   setMobileMenuOpen(false);
                   document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });

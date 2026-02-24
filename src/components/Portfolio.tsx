@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
 import { Button } from './ui/Button';
 import PortfolioModal from './PortfolioModal';
+import { WHATSAPP } from '../lib/constants';
 
 type Category = 'all' | 'kitchen' | 'wardrobe' | 'closet' | 'children';
 
@@ -41,14 +42,14 @@ export default function Portfolio() {
   const filteredData = PORTFOLIO_DATA.filter(item => activeTab === 'all' || item.category === activeTab);
 
   return (
-    <section id="portfolio" className="py-24 bg-[#111111]">
+    <section id="portfolio" className="py-24 bg-bg-dark-deep">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
           <SectionLabel>ПОРТФОЛИО</SectionLabel>
           <h2 className="text-[36px] md:text-[48px] leading-[1.1] font-serif text-white mb-6">
             Реализованные проекты
           </h2>
-          <p className="text-[#A1A1AA] text-[16px] md:text-[18px] max-w-2xl">
+          <p className="text-text-muted text-[16px] md:text-[18px] max-w-2xl">
             Мы гордимся каждой работой. Посмотрите примеры с реальными ценами и деталями реализации.
           </p>
         </div>
@@ -62,7 +63,7 @@ export default function Portfolio() {
               className={`whitespace-nowrap px-6 py-2.5 rounded-sm text-sm font-medium transition-all duration-300 border ${
                 activeTab === tab.id
                   ? 'bg-white text-primary border-white'
-                  : 'bg-transparent text-[#A1A1AA] border-white/10 hover:border-white/30 hover:text-white'
+                  : 'bg-transparent text-text-muted border-white/10 hover:border-white/30 hover:text-white'
               }`}
             >
               {tab.label}
@@ -73,7 +74,7 @@ export default function Portfolio() {
         {/* Grid / Carousel */}
         <div className="relative">
           {/* Right fade for mobile to indicate scroll */}
-          <div className="absolute top-0 right-0 bottom-8 w-16 bg-gradient-to-l from-[#111111] to-transparent z-10 pointer-events-none lg:hidden" />
+          <div className="absolute top-0 right-0 bottom-8 w-16 bg-gradient-to-l from-bg-dark-deep to-transparent z-10 pointer-events-none lg:hidden" />
           
           <motion.div layout className="flex lg:grid lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto lg:overflow-visible scrollbar-hide snap-x snap-mandatory pb-8 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
             <AnimatePresence mode="popLayout">
@@ -86,13 +87,14 @@ export default function Portfolio() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => setSelectedItem(item)}
-                  className="w-[85vw] sm:w-[45vw] lg:w-auto flex-shrink-0 snap-start lg:snap-align-none group bg-[#1A1A1A] rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col"
+                  className="w-[85vw] sm:w-[45vw] lg:w-auto flex-shrink-0 snap-start lg:snap-align-none group bg-bg-dark-alt rounded-sm overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden shrink-0">
-                    <img 
-                      src={item.img} 
-                      alt={item.title} 
+                    <img
+                      src={item.img}
+                      alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
                       data-replace="true"
                     />
                     {/* Glassmorphism Price Tag */}
@@ -104,13 +106,20 @@ export default function Portfolio() {
                     <h3 className="font-medium text-white text-lg mb-4 line-clamp-2">{item.title}</h3>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {item.tags.map(tag => (
-                        <span key={tag} className="text-[10px] uppercase tracking-widest text-[#A1A1AA] border border-white/10 px-2 py-1 rounded-sm">
+                        <span key={tag} className="text-[10px] uppercase tracking-widest text-text-muted border border-white/10 px-2 py-1 rounded-sm">
                           {tag}
                         </span>
                       ))}
                     </div>
                     <div className="mt-auto">
-                      <Button variant="outline" fullWidth className="!border-white/20 !text-white hover:!bg-white hover:!text-black">
+                      <Button
+                        variant="dark-outline"
+                        fullWidth
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                      >
                         Хочу такую же
                       </Button>
                     </div>
@@ -122,7 +131,7 @@ export default function Portfolio() {
         </div>
 
         <div className="mt-12 text-center">
-          <a href="#" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-white hover:text-accent transition-colors">
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-white hover:text-accent transition-colors">
             Смотреть больше фото в WhatsApp <span className="text-lg">&rarr;</span>
           </a>
         </div>

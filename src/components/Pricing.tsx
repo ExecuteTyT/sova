@@ -3,15 +3,7 @@ import { motion } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
 import { Button } from './ui/Button';
 import { Check } from 'lucide-react';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-};
-
-const staggerContainer = {
-  visible: { transition: { staggerChildren: 0.1 } }
-};
+import { fadeUp, staggerContainer } from '../lib/motion';
 
 const PACKAGES = [
   {
@@ -94,7 +86,7 @@ export default function Pricing() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-8 md:grid md:grid-cols-3 md:gap-8 items-center -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0"
+          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-8 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible items-center -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0"
         >
           {PACKAGES.map((pkg, idx) => (
             <motion.div 
@@ -102,7 +94,7 @@ export default function Pricing() {
               variants={fadeUp}
               className={`relative p-8 md:p-10 rounded-sm border transition-all duration-500 w-[85vw] shrink-0 snap-center md:w-auto ${
                 pkg.highlight 
-                  ? 'bg-[#1A1A1A] border-transparent shadow-2xl transform md:scale-[1.03]' 
+                  ? 'bg-bg-dark-alt border-transparent shadow-2xl transform md:scale-[1.03]' 
                   : 'bg-white border-border hover:border-accent/30'
               }`}
             >
@@ -116,7 +108,7 @@ export default function Pricing() {
                 <h3 className={`font-serif text-[28px] mb-2 ${pkg.highlight ? 'text-white' : 'text-primary'}`}>
                   {pkg.name}
                 </h3>
-                <p className={`text-sm mb-6 ${pkg.highlight ? 'text-[#A1A1AA]' : 'text-text-secondary'}`}>
+                <p className={`text-sm mb-6 ${pkg.highlight ? 'text-text-muted' : 'text-text-secondary'}`}>
                   {pkg.desc}
                 </p>
                 <div className={`text-[32px] font-medium ${pkg.highlight ? 'text-white' : 'text-primary'}`}>
@@ -143,10 +135,9 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <Button 
-                fullWidth 
+              <Button
+                fullWidth
                 variant={pkg.highlight ? 'primary' : 'outline'}
-                className={!pkg.highlight ? '!border-border !text-primary hover:!border-primary' : ''}
                 onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {pkg.highlight ? 'Рассчитать' : 'Подробнее'}

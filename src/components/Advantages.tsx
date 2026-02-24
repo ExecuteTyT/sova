@@ -3,15 +3,7 @@ import { motion } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
 import { FileCheck, Clock, ShieldCheck, Box } from 'lucide-react';
 import { CRAFTSMAN_IMAGE_URL } from '../lib/constants';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-};
-
-const staggerContainer = {
-  visible: { transition: { staggerChildren: 0.1 } }
-};
+import { fadeUp, staggerContainer } from '../lib/motion';
 
 export default function Advantages() {
   const advantages = [
@@ -83,15 +75,16 @@ export default function Advantages() {
             className="relative"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img 
-                src={CRAFTSMAN_IMAGE_URL} 
-                alt="Мастер за работой" 
+              <img
+                src={CRAFTSMAN_IMAGE_URL}
+                alt="Мастер за работой"
                 className="w-full h-full object-cover grayscale-[10%]"
+                loading="lazy"
                 data-replace="true"
               />
             </div>
             
-            <div className="absolute -bottom-8 -left-8 md:-left-12 max-w-[300px] backdrop-blur-xl bg-white/90 border border-black/5 p-8 rounded-sm shadow-custom-lg">
+            <div className="absolute -bottom-8 left-4 sm:-left-8 md:-left-12 max-w-[280px] sm:max-w-[300px] backdrop-blur-xl bg-white/90 border border-black/5 p-6 sm:p-8 rounded-sm shadow-custom-lg">
               <p className="font-serif italic text-xl text-primary leading-snug">
                 «Качество — это когда возвращается заказчик, а не товар.»
               </p>

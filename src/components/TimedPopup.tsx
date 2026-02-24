@@ -8,15 +8,33 @@ import { sendLead } from '../lib/send-lead';
 export default function TimedPopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [phone, setPhone] = useState('');
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const isClosed = sessionStorage.getItem('popupClosed');
-    if (!isClosed) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 35000); // 35 seconds
-      return () => clearTimeout(timer);
-    }
+    if (isClosed) return;
+
+    let opened = false;
+    const open = () => {
+      if (opened) return;
+      opened = true;
+      setIsOpen(true);
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+
+    const handleScroll = () => {
+      const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      if (scrolled > 0.5) open();
+    };
+
+    const timer = setTimeout(open, 60000);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleClose = () => {
@@ -26,13 +44,18 @@ export default function TimedPopup() {
 
   const handleSubmit = async () => {
     if (phone.replace(/\D/g, '').length < 11) return;
-    
-    await sendLead({
+    setError(false);
+
+    const success = await sendLead({
       phone,
       source: 'Всплывающее окно (Каталог)'
     });
-    
-    handleClose();
+
+    if (success) {
+      handleClose();
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -51,11 +74,11 @@ export default function TimedPopup() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-md bg-[#141414] border border-white/10 rounded-sm shadow-2xl p-8 pointer-events-auto z-10"
+            className="relative w-full max-w-md bg-bg-dark border border-white/10 rounded-sm shadow-2xl p-8 pointer-events-auto z-10"
           >
             <button 
               onClick={handleClose}
-              className="absolute top-4 right-4 text-[#A1A1AA] hover:text-white transition-colors"
+              className="absolute top-4 right-4 text-text-muted hover:text-white transition-colors"
             >
               <X size={20} strokeWidth={1.5} />
             </button>
@@ -63,24 +86,29 @@ export default function TimedPopup() {
             <h3 className="text-[24px] font-serif text-white mb-3 leading-tight">
               Выбираете мебель?
             </h3>
-            <p className="text-[#A1A1AA] text-sm mb-6 leading-relaxed">
+            <p className="text-text-muted text-sm mb-6 leading-relaxed">
               Получите PDF-каталог наших лучших проектов с реальными сметами за этот год.
             </p>
             
             <div className="space-y-4">
-              <PhoneInput 
-                value={phone} 
-                onChange={setPhone} 
-                className="!bg-[#1A1A1A] !border-white/10 !text-white !placeholder-[#A1A1AA]"
+              <PhoneInput
+                value={phone}
+                onChange={setPhone}
+                dark
               />
-              <Button 
-                fullWidth 
+              <Button
+                fullWidth
                 onClick={handleSubmit}
                 disabled={phone.replace(/\D/g, '').length < 11}
                 className="disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Получить каталог в WhatsApp
               </Button>
+              {error && (
+                <p className="text-sm text-red-400 mt-2">
+                  Не удалось отправить. Попробуйте позже.
+                </p>
+              )}
             </div>
           </motion.div>
         </div>

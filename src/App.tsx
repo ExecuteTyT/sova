@@ -20,11 +20,7 @@ import Footer from './components/Footer';
 import TimedPopup from './components/TimedPopup';
 import WhatsAppButton from './components/WhatsAppButton';
 import ScrollProgress from './components/ScrollProgress';
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-};
+import { sectionVariants } from './lib/motion';
 
 export default function App() {
   return (

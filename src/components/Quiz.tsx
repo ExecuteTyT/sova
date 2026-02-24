@@ -25,6 +25,7 @@ export default function Quiz() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [priceRange, setPriceRange] = useState({ min: 0, max: 0 });
+  const [submitError, setSubmitError] = useState(false);
 
   const hasKitchen = answers.item === 'kitchen';
   
@@ -59,8 +60,9 @@ export default function Quiz() {
     if (step === 6) {
       const range = calculatePrice(answers);
       setPriceRange(range);
-      
-      await sendLead({
+      setSubmitError(false);
+
+      const success = await sendLead({
         name,
         phone,
         source: 'Квиз (Расчет стоимости)',
@@ -69,7 +71,8 @@ export default function Quiz() {
           calculatedPrice: range.min
         }
       });
-      
+
+      if (!success) setSubmitError(true);
       setStep(7);
     } else {
       if (step === 1) {
@@ -343,6 +346,11 @@ export default function Quiz() {
                   <Phone size={16} strokeWidth={1.5} />
                   <span>Ожидайте звонка дизайнера в течение 15 минут.</span>
                 </div>
+                {submitError && (
+                  <p className="mt-4 text-sm text-red-600">
+                    Не удалось отправить заявку. Пожалуйста, позвоните нам напрямую.
+                  </p>
+                )}
               </motion.div>
             )}
           </AnimatePresence>

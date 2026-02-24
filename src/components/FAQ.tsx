@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
 import { Button } from './ui/Button';
 import { Plus } from 'lucide-react';
+import { WHATSAPP } from '../lib/constants';
 
 const FAQ_DATA = [
   { q: 'Сколько стоит кухня?', a: 'От 120 000 ₽ (прямая 2м, ЛДСП) до 700 000+ ₽ (премиум с островом). Средний чек 250-350к. Точную стоимость назовём после замера и составления 3D-проекта.' },
@@ -35,9 +36,9 @@ export default function FAQ() {
             <p className="text-text-secondary text-[16px] md:text-[18px] mb-8">
               Не нашли ответ на свой вопрос? Позвоните нам или напишите в WhatsApp, мы с радостью проконсультируем.
             </p>
-            <Button 
-              onClick={() => window.open('https://wa.me/79XXXXXXXXX', '_blank')}
-              className="!bg-[#25D366] hover:!bg-[#1EBE5D] !text-white !shadow-[0_8px_30px_rgba(37,211,102,0.3)]"
+            <Button
+              variant="whatsapp"
+              onClick={() => window.open(WHATSAPP, '_blank')}
             >
               Написать в WhatsApp
             </Button>

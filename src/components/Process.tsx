@@ -1,15 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-};
-
-const staggerContainer = {
-  visible: { transition: { staggerChildren: 0.1 } }
-};
+import { fadeUp, staggerContainer } from '../lib/motion';
 
 const STEPS = [
   { num: '01', title: 'Заявка', desc: 'Оставляете заявку или звоните. Перезвоним за 15 минут.', time: 'День 1' },
@@ -46,7 +38,7 @@ export default function Process() {
           {/* Horizontal Line for Desktop */}
           <div className="hidden md:block absolute top-[120px] left-0 w-full h-[1px] bg-border"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 gap-8 md:gap-4">
             {STEPS.map((step, index) => (
               <motion.div 
                 key={index}

@@ -1,15 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-};
-
-const staggerContainer = {
-  visible: { transition: { staggerChildren: 0.1 } }
-};
+import { fadeUp, staggerContainer } from '../lib/motion';
 
 const REVIEWS = [
   {
@@ -34,7 +26,7 @@ const REVIEWS = [
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-24 bg-[#111111] border-t border-white/5">
+    <section id="reviews" className="py-24 bg-bg-dark-deep border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
@@ -48,7 +40,7 @@ export default function Reviews() {
             <h2 className="text-[36px] md:text-[48px] leading-[1.1] font-serif text-white mb-4">
               Слово нашим клиентам
             </h2>
-            <div className="flex items-center gap-3 text-[#A1A1AA]">
+            <div className="flex items-center gap-3 text-text-muted">
               <div className="flex text-accent">
                 {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
               </div>
@@ -70,7 +62,7 @@ export default function Reviews() {
               variants={fadeUp}
               className="border border-white/10 rounded-sm p-8 flex flex-col justify-between"
             >
-              <p className="font-serif italic text-[18px] leading-relaxed text-[#D4D4D8] mb-8">
+              <p className="font-serif italic text-[18px] leading-relaxed text-text-light mb-8">
                 «{review.text}»
               </p>
               <div className="flex items-center justify-between border-t border-white/10 pt-6">

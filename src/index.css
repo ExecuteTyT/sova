@@ -8,6 +8,8 @@
   --color-bg: #FAFAF7;
   --color-bg-alt: #F2F0EB;
   --color-bg-dark: #141414;
+  --color-bg-dark-alt: #1A1A1A;
+  --color-bg-dark-deep: #111111;
   --color-bg-card: #FFFFFF;
 
   --color-primary: #141414;
@@ -20,8 +22,12 @@
   --color-text: #141414;
   --color-text-secondary: #6B6B6B;
   --color-text-white: #FAFAF7;
+  --color-text-muted: #A1A1AA;
+  --color-text-light: #D4D4D8;
 
   --color-success: #2D7A4F;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
   --color-border: rgba(20, 20, 20, 0.1);
 
   --shadow-custom: 0 4px 20px rgba(0, 0, 0, 0.03);
@@ -35,6 +41,9 @@
   }
   h1, h2, .font-display {
     @apply font-serif;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
   }
 }
 
