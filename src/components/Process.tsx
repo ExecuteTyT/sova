@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
+import { Button } from './ui/Button';
+import LeadCaptureModal from './LeadCaptureModal';
 import { fadeUp, staggerContainer } from '../lib/motion';
 
 const STEPS = [
@@ -13,13 +15,15 @@ const STEPS = [
 ];
 
 export default function Process() {
+  const [showLead, setShowLead] = useState(false);
+
   return (
     <section id="process" className="py-24 bg-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-60px" }}
           variants={staggerContainer}
           className="mb-20"
         >
@@ -44,8 +48,8 @@ export default function Process() {
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
                 className="relative flex flex-col pt-8 md:pt-0"
               >
                 {/* Vertical Line for Mobile */}
@@ -72,6 +76,25 @@ export default function Process() {
             ))}
           </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 text-center"
+        >
+          <p className="text-text-secondary mb-6">Готовы начать? Первый шаг — бесплатный замер с образцами материалов.</p>
+          <Button onClick={() => setShowLead(true)}>
+            Записаться на замер
+          </Button>
+        </motion.div>
+
+        <LeadCaptureModal
+          isOpen={showLead}
+          onClose={() => setShowLead(false)}
+          source="Этапы работы (Запись на замер)"
+        />
       </div>
     </section>
   );

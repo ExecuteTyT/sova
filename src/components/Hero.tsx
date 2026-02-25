@@ -4,12 +4,13 @@ import { Button } from './ui/Button';
 import { HERO_IMAGE_URL } from '../lib/constants';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
 };
 
 const staggerContainer = {
-  visible: { transition: { staggerChildren: 0.15 } }
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.18 } }
 };
 
 export default function Hero() {
@@ -54,9 +55,9 @@ export default function Hero() {
 
         {/* Image & Metrics */}
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 items-start relative mt-8 lg:mt-0"
         >
           <div className="w-full lg:col-span-3 flex flex-row lg:flex-col justify-between lg:justify-start gap-8 border-t border-border pt-6">

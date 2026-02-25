@@ -66,7 +66,7 @@ export default function Pricing() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-60px" }}
           variants={staggerContainer}
           className="text-center mb-16"
         >

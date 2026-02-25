@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
+import { Button } from './ui/Button';
+import LeadCaptureModal from './LeadCaptureModal';
 import { FileCheck, Clock, ShieldCheck, Box } from 'lucide-react';
 import { CRAFTSMAN_IMAGE_URL } from '../lib/constants';
 import { fadeUp, staggerContainer } from '../lib/motion';
 
 export default function Advantages() {
+  const [showLead, setShowLead] = useState(false);
   const advantages = [
     {
       icon: FileCheck,
@@ -38,7 +41,7 @@ export default function Advantages() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "-60px" }}
             variants={staggerContainer}
           >
             <motion.div variants={fadeUp}>
@@ -64,14 +67,20 @@ export default function Advantages() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div variants={fadeUp} className="mt-12">
+              <Button onClick={() => setShowLead(true)}>
+                Получить бесплатный дизайн-проект
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Right Column */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
@@ -93,6 +102,12 @@ export default function Advantages() {
           </motion.div>
 
         </div>
+
+        <LeadCaptureModal
+          isOpen={showLead}
+          onClose={() => setShowLead(false)}
+          source="Преимущества (Бесплатный дизайн-проект)"
+        />
       </div>
     </section>
   );

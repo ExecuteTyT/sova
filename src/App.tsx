@@ -22,52 +22,45 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ScrollProgress from './components/ScrollProgress';
 import { sectionVariants } from './lib/motion';
 
+const sectionViewport = { once: true, margin: '-60px' as const };
+
 export default function App() {
   return (
     <Layout>
       <ScrollProgress />
       <Header />
-      
+
       <Hero />
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
+
+      <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={sectionVariants}>
         <TrustBar />
       </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
-        <Portfolio />
-      </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
+
+      {/* Components below have their own whileInView animations — no outer wrapper */}
+      <Portfolio />
+
+      <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={sectionVariants}>
         <Quiz />
       </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
-        <Advantages />
-      </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
-        <Process />
-      </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
-        <Pricing />
-      </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
-        <Reviews />
-      </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
+
+      <Advantages />
+
+      <Process />
+
+      <Pricing />
+
+      <Reviews />
+
+      <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={sectionVariants}>
         <FAQ />
       </motion.div>
-      
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={sectionVariants}>
+
+      <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={sectionVariants}>
         <CTAFinal />
       </motion.div>
 
       <Footer />
-      
+
       <TimedPopup />
       <WhatsAppButton />
     </Layout>

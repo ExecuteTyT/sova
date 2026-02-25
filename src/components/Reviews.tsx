@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
+import { Button } from './ui/Button';
+import LeadCaptureModal from './LeadCaptureModal';
 import { fadeUp, staggerContainer } from '../lib/motion';
 
 const REVIEWS = [
@@ -25,13 +27,15 @@ const REVIEWS = [
 ];
 
 export default function Reviews() {
+  const [showLead, setShowLead] = useState(false);
+
   return (
     <section id="reviews" className="py-24 bg-bg-dark-deep border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-60px" }}
           variants={staggerContainer}
           className="mb-16"
         >
@@ -74,6 +78,25 @@ export default function Reviews() {
             </motion.div>
           ))}
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-16 text-center"
+        >
+          <p className="text-text-muted mb-6">Присоединяйтесь к 200+ довольным семьям</p>
+          <Button onClick={() => setShowLead(true)}>
+            Обсудить мой проект
+          </Button>
+        </motion.div>
+
+        <LeadCaptureModal
+          isOpen={showLead}
+          onClose={() => setShowLead(false)}
+          source="Отзывы (Обсудить проект)"
+        />
       </div>
     </section>
   );
