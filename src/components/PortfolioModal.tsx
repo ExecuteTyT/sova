@@ -7,9 +7,10 @@ import { PortfolioItem } from './Portfolio';
 interface Props {
   item: PortfolioItem;
   onClose: () => void;
+  onLeadCapture: () => void;
 }
 
-export default function PortfolioModal({ item, onClose }: Props) {
+export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) {
   const [mainImg, setMainImg] = useState(item.img);
 
   const thumbnails = [
@@ -91,11 +92,11 @@ export default function PortfolioModal({ item, onClose }: Props) {
           </div>
 
               <div className="mt-auto pt-8 hidden md:block">
-                <Button 
-                  fullWidth 
+                <Button
+                  fullWidth
                   onClick={() => {
                     onClose();
-                    document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                    onLeadCapture();
                   }}
                 >
                   Хочу так же
@@ -106,11 +107,11 @@ export default function PortfolioModal({ item, onClose }: Props) {
 
           {/* Mobile Sticky Footer */}
           <div className="absolute bottom-0 left-0 right-0 bg-bg-dark-alt border-t border-white/5 p-4 md:hidden z-10">
-            <Button 
-              fullWidth 
+            <Button
+              fullWidth
               onClick={() => {
                 onClose();
-                document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                onLeadCapture();
               }}
             >
               Хочу так же

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { SectionLabel } from './ui/SectionLabel';
 import { Button } from './ui/Button';
 import PortfolioModal from './PortfolioModal';
+import LeadCaptureModal from './LeadCaptureModal';
 import { WHATSAPP } from '../lib/constants';
 
 type Category = 'all' | 'kitchen' | 'wardrobe' | 'closet' | 'children';
@@ -38,6 +39,7 @@ const TABS: { id: Category; label: string }[] = [
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState<Category>('all');
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
+  const [leadItem, setLeadItem] = useState<PortfolioItem | null>(null);
 
   const filteredData = PORTFOLIO_DATA.filter(item => activeTab === 'all' || item.category === activeTab);
 
@@ -117,7 +119,7 @@ export default function Portfolio() {
                         fullWidth
                         onClick={(e) => {
                           e.stopPropagation();
-                          document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' });
+                          setLeadItem(item);
                         }}
                       >
                         Хочу такую же
@@ -138,12 +140,20 @@ export default function Portfolio() {
 
         <AnimatePresence>
           {selectedItem && (
-            <PortfolioModal 
-              item={selectedItem} 
-              onClose={() => setSelectedItem(null)} 
+            <PortfolioModal
+              item={selectedItem}
+              onClose={() => setSelectedItem(null)}
+              onLeadCapture={() => setLeadItem(selectedItem)}
             />
           )}
         </AnimatePresence>
+
+        <LeadCaptureModal
+          isOpen={!!leadItem}
+          onClose={() => setLeadItem(null)}
+          source={`Портфолио — ${leadItem?.title || ''}`}
+          projectTitle={leadItem?.title}
+        />
       </div>
     </section>
   );

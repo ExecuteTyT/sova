@@ -56,9 +56,10 @@ export default function Quiz() {
   const totalSteps = getTotalSteps();
   const currentVisualStep = getCurrentVisualStep();
 
-  const handleNext = async () => {
+  const handleNext = async (currentAnswers?: QuizAnswers) => {
+    const a = currentAnswers || answers;
     if (step === 6) {
-      const range = calculatePrice(answers);
+      const range = calculatePrice(a);
       setPriceRange(range);
       setSubmitError(false);
 
@@ -67,7 +68,7 @@ export default function Quiz() {
         phone,
         source: 'Квиз (Расчет стоимости)',
         quizData: {
-          ...answers,
+          ...a,
           calculatedPrice: range.min
         }
       });
@@ -76,9 +77,9 @@ export default function Quiz() {
       setStep(7);
     } else {
       if (step === 1) {
-        if (answers.item === 'kitchen') setStep(2);
-        else if (answers.item === 'wardrobe' || answers.item === 'closet') setStep(3);
-        else if (answers.item === 'apartment') setStep(4);
+        if (a.item === 'kitchen') setStep(2);
+        else if (a.item === 'wardrobe' || a.item === 'closet') setStep(3);
+        else if (a.item === 'apartment') setStep(4);
       } else if (step === 2) {
         setStep(3);
       } else if (step === 3) {
@@ -104,8 +105,9 @@ export default function Quiz() {
   };
 
   const setAnswer = (key: keyof QuizAnswers, value: any) => {
-    setAnswers(prev => ({ ...prev, [key]: value }));
-    setTimeout(handleNext, 400);
+    const updated = { ...answers, [key]: value };
+    setAnswers(updated);
+    setTimeout(() => handleNext(updated), 400);
   };
 
   const progress = Math.min((currentVisualStep / totalSteps) * 100, 100);
