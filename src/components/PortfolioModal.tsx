@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { X } from 'lucide-react';
 import { Button } from './ui/Button';
-import { PortfolioItem } from './Portfolio';
+import type { PortfolioItem } from '../lib/constants';
 
 interface Props {
   item: PortfolioItem;
@@ -11,13 +11,9 @@ interface Props {
 }
 
 export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) {
+  const allImages = [item.img, ...(item.images ?? [])];
   const [mainImg, setMainImg] = useState(item.img);
-
-  const thumbnails = [
-    item.img,
-    item.img.replace('Кухня', 'Деталь').replace('Шкаф', 'Деталь').replace('Гардеробная', 'Деталь'),
-    item.img.replace('Кухня', 'Фурнитура').replace('Шкаф', 'Фурнитура').replace('Гардеробная', 'Фурнитура'),
-  ];
+  const hasThumbnails = allImages.length > 1;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
@@ -34,11 +30,11 @@ export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) 
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 16 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-5xl bg-bg-dark-alt rounded-sm shadow-2xl overflow-hidden flex flex-col z-10 h-[90vh] md:h-auto max-h-[90vh]"
+        className="relative w-full max-w-5xl bg-white rounded-sm shadow-2xl overflow-hidden flex flex-col z-10 h-[90vh] md:h-auto max-h-[90vh]"
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 text-white/50 hover:text-white transition-colors bg-black/40 hover:bg-black/60 rounded-sm w-10 h-10 flex items-center justify-center"
+          className="absolute top-4 right-4 z-20 text-primary/40 hover:text-primary transition-colors bg-black/10 hover:bg-black/20 rounded-sm w-10 h-10 flex items-center justify-center"
         >
           <X size={24} strokeWidth={1.5} />
         </button>
@@ -46,21 +42,23 @@ export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) 
         <div className="relative h-full flex flex-col w-full">
           <div className="flex-1 overflow-y-auto scrollbar-hide pb-[90px] md:pb-0 md:overflow-hidden flex flex-col md:flex-row">
             {/* Left: Gallery */}
-            <div className="w-full md:w-3/5 flex flex-col bg-bg-dark-deep">
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-bg-dark-deep">
-            <img src={mainImg} alt={item.title} className="w-full h-full object-cover" loading="lazy" data-replace="true" />
+            <div className="w-full md:w-3/5 flex flex-col bg-bg-alt">
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-bg-alt">
+            <img src={mainImg} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
           </div>
-          <div className="flex gap-3 p-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory bg-bg-dark-alt">
-            {thumbnails.map((thumb, idx) => (
-              <button 
-                key={idx} 
-                onClick={() => setMainImg(thumb)}
-                className={`relative h-20 min-w-[120px] snap-center flex-shrink-0 rounded-sm overflow-hidden border-2 transition-colors ${mainImg === thumb ? 'border-accent' : 'border-transparent opacity-50 hover:opacity-100'}`}
-              >
-                <img src={thumb} alt="thumbnail" className="w-full h-full object-cover" loading="lazy" data-replace="true" />
-              </button>
-            ))}
-          </div>
+          {hasThumbnails && (
+            <div className="flex gap-3 p-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory bg-bg">
+              {allImages.map((thumb, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setMainImg(thumb)}
+                  className={`relative h-20 min-w-[120px] snap-center flex-shrink-0 rounded-sm overflow-hidden border-2 transition-colors ${mainImg === thumb ? 'border-accent' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                >
+                  <img src={thumb} alt={`${item.title} — фото ${idx + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
             {/* Right: Info */}
@@ -68,25 +66,25 @@ export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) 
               <div className="mb-2 text-xs font-medium uppercase tracking-widest text-accent">
             Проект
           </div>
-          <h3 className="text-[24px] md:text-[28px] font-serif text-white leading-[1.1] mb-6">
+          <h3 className="text-[24px] md:text-[28px] font-serif text-primary leading-[1.1] mb-6">
             {item.title}
           </h3>
-          
+
           <div className="mb-8">
-            <div className="text-sm text-text-muted mb-1">Стоимость реализации:</div>
-            <div className="text-[28px] font-serif text-white">{item.price}</div>
+            <div className="text-sm text-text-secondary mb-1">Стоимость реализации:</div>
+            <div className="text-[28px] font-serif text-primary">{item.price}</div>
           </div>
 
           <div className="mb-8">
-            <div className="text-sm text-text-muted mb-3">Использованные материалы:</div>
+            <div className="text-sm text-text-secondary mb-3">Использованные материалы:</div>
             <ul className="space-y-3">
               {item.tags.map((tag, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-white/90 text-sm">
+                <li key={idx} className="flex items-center gap-3 text-primary/90 text-sm">
                   <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
                   {tag}
                 </li>
               ))}
-              <li className="flex items-center gap-3 text-white/90 text-sm">
+              <li className="flex items-center gap-3 text-primary/90 text-sm">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
                 Срок изготовления: 25 дней
               </li>
@@ -108,7 +106,7 @@ export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) 
           </div>
 
           {/* Mobile Sticky Footer */}
-          <div className="absolute bottom-0 left-0 right-0 bg-bg-dark-alt border-t border-white/5 p-4 md:hidden z-10">
+          <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-border p-4 md:hidden z-10">
             <Button
               fullWidth
               onClick={() => {

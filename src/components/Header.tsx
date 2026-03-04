@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-bg-dark/95 backdrop-blur-md shadow-sm py-4 border-b border-white/5' : 'bg-transparent py-6'
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-4 border-b border-border' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -41,7 +41,7 @@ export default function Header() {
             <a 
               key={link.name} 
               href={link.href}
-              className={`text-sm font-medium uppercase tracking-widest transition-colors duration-300 ${scrolled ? 'text-white/80 hover:text-white' : 'text-primary/80 hover:text-primary'}`}
+              className={`text-sm font-medium uppercase tracking-widest transition-colors duration-300 ${scrolled ? 'text-primary/70 hover:text-primary' : 'text-primary/80 hover:text-primary'}`}
             >
               {link.name}
             </a>
@@ -52,7 +52,7 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-6">
           <a
             href={`tel:${PHONE_RAW}`}
-            className={`flex items-center gap-2 text-lg font-semibold tracking-wide transition-colors duration-300 ${scrolled ? 'text-white hover:text-accent' : 'text-primary hover:text-accent'}`}
+            className="flex items-center gap-2 text-lg font-semibold tracking-wide transition-colors duration-300 text-primary hover:text-accent"
           >
             <Phone size={16} strokeWidth={2} />
             {PHONE}
@@ -68,7 +68,7 @@ export default function Header() {
 
         {/* Mobile Burger */}
         <button 
-          className={`md:hidden p-2 transition-colors duration-300 ${scrolled ? 'text-white' : 'text-primary'}`}
+          className="md:hidden p-2 transition-colors duration-300 text-primary"
           onClick={() => setMobileMenuOpen(true)}
         >
           <Menu size={24} strokeWidth={1.5} />
@@ -83,19 +83,19 @@ export default function Header() {
             animate={{ opacity: 1, clipPath: 'circle(150% at 100% 0)' }}
             exit={{ opacity: 0, clipPath: 'circle(0% at 100% 0)' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[999] bg-bg-dark flex flex-col h-[100dvh] px-6 py-8 overflow-hidden"
+            className="fixed inset-0 z-[999] bg-white flex flex-col h-[100dvh] px-6 py-8 overflow-hidden"
           >
             {/* Decorative background elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
             <div className="flex justify-between items-center relative z-10">
-              <span className="font-serif text-[24px] tracking-widest text-white uppercase">
+              <span className="font-serif text-[24px] tracking-widest text-primary uppercase">
                 Mebel<span className="text-accent">Sova</span>
               </span>
-              <button 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="text-white p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors backdrop-blur-sm"
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-primary p-3 bg-black/5 hover:bg-black/10 rounded-full transition-colors"
               >
                 <X size={24} strokeWidth={1.5} />
               </button>
@@ -110,9 +110,9 @@ export default function Header() {
                   initial={{ opacity: 0, x: 40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 + i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="text-4xl sm:text-5xl font-serif text-white tracking-wide hover:text-accent transition-colors flex items-center gap-6 group"
+                  className="text-4xl sm:text-5xl font-serif text-primary tracking-wide hover:text-accent transition-colors flex items-center gap-6 group"
                 >
-                  <span className="text-sm font-sans text-accent/50 group-hover:text-accent transition-colors">0{i + 1}</span>
+                  <span className="text-sm font-sans text-accent/40 group-hover:text-accent transition-colors">0{i + 1}</span>
                   {link.name}
                 </motion.a>
               ))}
@@ -122,14 +122,14 @@ export default function Header() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="mt-auto pt-8 border-t border-white/10 relative z-10"
+              className="mt-auto pt-8 border-t border-border relative z-10"
             >
               <div className="mb-8">
-                <p className="text-white/40 text-[10px] uppercase tracking-widest mb-3">Связаться с нами</p>
-                <a href={`tel:${PHONE_RAW}`} className="block text-3xl text-white font-sans mb-1 tracking-tight">
+                <p className="text-text-secondary text-[10px] uppercase tracking-widest mb-3">Связаться с нами</p>
+                <a href={`tel:${PHONE_RAW}`} className="block text-3xl text-primary font-sans mb-1 tracking-tight">
                   {PHONE}
                 </a>
-                <p className="text-white/60 text-sm">
+                <p className="text-text-secondary text-sm">
                   {WORK_HOURS}
                 </p>
               </div>

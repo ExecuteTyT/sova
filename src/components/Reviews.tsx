@@ -30,9 +30,9 @@ export default function Reviews() {
   const [showLead, setShowLead] = useState(false);
 
   return (
-    <section id="reviews" className="py-24 bg-bg-dark-deep border-t border-white/5">
+    <section id="reviews" className="py-24 bg-bg-subtle border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
@@ -41,10 +41,10 @@ export default function Reviews() {
         >
           <motion.div variants={fadeUp}>
             <SectionLabel>ОТЗЫВЫ</SectionLabel>
-            <h2 className="text-[36px] md:text-[48px] leading-[1.1] font-serif text-white mb-4">
+            <h2 className="text-[36px] md:text-[48px] leading-[1.1] font-serif text-primary mb-4">
               Слово нашим клиентам
             </h2>
-            <div className="flex items-center gap-3 text-text-muted">
+            <div className="flex items-center gap-3 text-text-secondary">
               <div className="flex text-accent">
                 {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
               </div>
@@ -64,13 +64,13 @@ export default function Reviews() {
             <motion.div 
               key={review.id}
               variants={fadeUp}
-              className="border border-white/10 rounded-sm p-8 flex flex-col justify-between"
+              className="bg-white border border-border rounded-sm p-8 flex flex-col justify-between"
             >
-              <p className="font-serif italic text-[18px] leading-relaxed text-text-light mb-8">
+              <p className="font-serif italic text-[18px] leading-relaxed text-text-secondary mb-8">
                 «{review.text}»
               </p>
-              <div className="flex items-center justify-between border-t border-white/10 pt-6">
-                <span className="font-medium text-white tracking-wide">{review.author}</span>
+              <div className="flex items-center justify-between border-t border-border pt-6">
+                <span className="font-medium text-primary tracking-wide">{review.author}</span>
                 <div className="flex text-accent text-sm">
                   {[...Array(review.rating)].map((_, i) => <span key={i}>★</span>)}
                 </div>
@@ -86,7 +86,7 @@ export default function Reviews() {
           transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mt-16 text-center"
         >
-          <p className="text-text-muted mb-6">Присоединяйтесь к 200+ довольным семьям</p>
+          <p className="text-text-secondary mb-6">Присоединяйтесь к 200+ довольным семьям</p>
           <Button onClick={() => setShowLead(true)}>
             Обсудить мой проект
           </Button>

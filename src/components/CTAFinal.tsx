@@ -27,16 +27,16 @@ export default function CTAFinal() {
   };
 
   return (
-    <section className="py-24 bg-bg-dark-alt border-t border-white/5 relative overflow-hidden">
+    <section className="py-24 bg-bg border-t border-border relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <SectionLabel className="mx-auto">ОСТАЛИСЬ СОМНЕНИЯ?</SectionLabel>
-        <h2 className="text-[36px] md:text-[56px] leading-[1.1] font-serif text-white mb-6">
+        <h2 className="text-[36px] md:text-[56px] leading-[1.1] font-serif text-primary mb-6">
           Давайте обсудим ваш проект
         </h2>
-        <p className="text-text-muted text-[16px] md:text-[18px] mb-12 max-w-2xl mx-auto">
+        <p className="text-text-secondary text-[16px] md:text-[18px] mb-12 max-w-2xl mx-auto">
           Оставьте номер телефона. Наш дизайнер перезвонит в течение 15 минут, ответит на вопросы и договорится о бесплатном замере.
         </p>
 
@@ -44,10 +44,10 @@ export default function CTAFinal() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-bg-dark-deep border border-white/10 p-8 rounded-sm inline-block"
+            className="bg-bg-alt border border-border p-8 rounded-sm inline-block"
           >
-            <h3 className="text-2xl font-serif text-white mb-2">Спасибо за заявку!</h3>
-            <p className="text-text-muted">Мы перезвоним вам в ближайшее время.</p>
+            <h3 className="text-2xl font-serif text-primary mb-2">Спасибо за заявку!</h3>
+            <p className="text-text-secondary">Мы перезвоним вам в ближайшее время.</p>
           </motion.div>
         ) : (
           <>
@@ -55,7 +55,6 @@ export default function CTAFinal() {
               <PhoneInput
                 value={phone}
                 onChange={setPhone}
-                dark
                 className="sm:w-2/3"
               />
               <Button
@@ -73,7 +72,7 @@ export default function CTAFinal() {
             )}
           </>
         )}
-        <p className="text-xs text-text-muted mt-6 opacity-60">
+        <p className="text-xs text-text-secondary mt-6 opacity-60">
           Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
         </p>
       </div>
