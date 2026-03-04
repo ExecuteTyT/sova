@@ -7,7 +7,7 @@
 
   --color-bg: #F8FAF8;
   --color-bg-alt: #EEF0EB;
-  --color-bg-subtle: #E6EBE8;
+  --color-bg-subtle: #E4EBE7;
   --color-bg-dark: #141414;
   --color-bg-dark-alt: #1A1A1A;
   --color-bg-dark-deep: #1F3329;
@@ -16,12 +16,13 @@
   --color-primary: #141414;
   --color-primary-light: #2A2A2A;
 
-  --color-accent: #7A9E8C;
-  --color-accent-hover: #618480;
-  --color-accent-light: rgba(122, 158, 140, 0.06);
+  --color-accent: #6B9E8A;
+  --color-accent-hover: #527A6B;
+  --color-accent-light: rgba(107, 158, 138, 0.08);
+  --color-accent-deep: #3D6B5C;
 
   --color-text: #141414;
-  --color-text-secondary: #6B6B6B;
+  --color-text-secondary: #525252;
   --color-text-white: #FAFAF7;
   --color-text-muted: #A1A1AA;
   --color-text-light: #D4D4D8;
@@ -29,11 +30,11 @@
   --color-success: #2D7A4F;
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5D;
-  --color-border: rgba(20, 20, 20, 0.1);
+  --color-border: rgba(20, 20, 20, 0.12);
 
-  --shadow-custom: 0 4px 20px rgba(0, 0, 0, 0.03);
-  --shadow-custom-lg: 0 10px 40px rgba(0, 0, 0, 0.04);
-  --shadow-custom-hover: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-custom: 0 4px 24px rgba(0, 0, 0, 0.07);
+  --shadow-custom-lg: 0 16px 48px rgba(0, 0, 0, 0.11);
+  --shadow-custom-hover: 0 20px 48px rgba(0, 0, 0, 0.14);
 }
 
 @layer base {
@@ -50,10 +51,13 @@
 
 @layer utilities {
   .glass-card {
-    @apply backdrop-blur-xl bg-white/80 border border-black/5 rounded-sm shadow-custom;
+    @apply backdrop-blur-xl bg-white/90 border border-black/8 rounded-sm shadow-custom-lg;
   }
   .section-label {
-    @apply text-accent uppercase tracking-[3px] text-[13px] font-semibold mb-4 block;
+    @apply text-accent-deep uppercase tracking-[3px] text-[13px] font-semibold mb-4 block;
+  }
+  .card-lift {
+    @apply bg-white rounded-sm shadow-custom border border-border transition-shadow duration-300 hover:shadow-custom-lg;
   }
   .reveal {
     opacity: 0;

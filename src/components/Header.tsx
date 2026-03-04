@@ -31,7 +31,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className={`font-serif text-[24px] tracking-widest uppercase transition-colors duration-300 ${scrolled ? 'text-white' : 'text-primary'}`}>
+        <a href="#" className="font-serif text-[24px] tracking-widest uppercase transition-colors duration-300 text-primary">
           Mebel<span className="text-accent">Sova</span>
         </a>
 

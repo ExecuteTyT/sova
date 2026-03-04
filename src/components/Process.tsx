@@ -40,7 +40,7 @@ export default function Process() {
 
         <div className="relative">
           {/* Horizontal Line for Desktop */}
-          <div className="hidden md:block absolute top-[120px] left-0 w-full h-[1px] bg-border"></div>
+          <div className="hidden md:block absolute top-[120px] left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 gap-8 md:gap-4">
             {STEPS.map((step, index) => (
@@ -56,17 +56,17 @@ export default function Process() {
                 <div className="md:hidden absolute left-0 top-0 w-[1px] h-full bg-border"></div>
                 
                 {/* Number Watermark */}
-                <div className="absolute top-0 md:top-4 left-4 md:left-0 font-serif text-[80px] leading-none text-primary opacity-5 select-none pointer-events-none z-0">
+                <div className="absolute top-0 md:top-4 left-4 md:left-0 font-serif text-[80px] leading-none text-accent opacity-[0.12] select-none pointer-events-none z-0">
                   {step.num}
                 </div>
 
                 <div className="relative z-10 pl-8 md:pl-0">
                   <div className="hidden md:flex items-center mb-16">
-                    <div className="w-2 h-2 rounded-full bg-accent"></div>
+                    <div className="w-3 h-3 rounded-full bg-accent ring-4 ring-accent/20"></div>
                   </div>
-                  <div className="md:hidden absolute left-[-4px] top-10 w-2 h-2 rounded-full bg-accent"></div>
+                  <div className="md:hidden absolute left-[-5px] top-10 w-3 h-3 rounded-full bg-accent ring-4 ring-accent/20"></div>
 
-                  <div className="text-xs font-medium uppercase tracking-widest text-accent mb-3">
+                  <div className="text-xs font-medium uppercase tracking-widest text-accent-deep mb-3">
                     {step.time}
                   </div>
                   <h3 className="font-serif text-[24px] text-primary mb-3">{step.title}</h3>

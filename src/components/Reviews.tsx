@@ -61,13 +61,15 @@ export default function Reviews() {
           className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {REVIEWS.map((review) => (
-            <motion.div 
+            <motion.div
               key={review.id}
               variants={fadeUp}
-              className="bg-white border border-border rounded-sm p-8 flex flex-col justify-between"
+              className="bg-white border border-border rounded-sm p-8 flex flex-col justify-between shadow-custom hover:shadow-custom-lg transition-shadow duration-300 relative overflow-hidden"
             >
-              <p className="font-serif italic text-[18px] leading-relaxed text-text-secondary mb-8">
-                «{review.text}»
+              {/* Decorative quote mark */}
+              <div className="absolute top-4 right-6 font-serif text-[80px] leading-none text-accent opacity-[0.08] select-none pointer-events-none">"</div>
+              <p className="font-serif italic text-[18px] leading-relaxed text-text-secondary mb-8 relative z-10">
+                {review.text}
               </p>
               <div className="flex items-center justify-between border-t border-border pt-6">
                 <span className="font-medium text-primary tracking-wide">{review.author}</span>

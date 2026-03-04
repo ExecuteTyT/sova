@@ -40,29 +40,33 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-bg-dark-deep py-12 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col items-center md:items-start">
-              <a href="#" className="font-serif text-[24px] tracking-widest text-white uppercase mb-2">
+      <footer className="bg-bg-dark-deep py-16 border-t border-white/5 relative overflow-hidden">
+        {/* Atmospheric blobs */}
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/6 rounded-full blur-[100px] pointer-events-none translate-x-1/4 -translate-y-1/4" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-12 border-b border-white/8">
+            <div className="flex flex-col">
+              <a href="#" className="font-serif text-[28px] tracking-widest text-white uppercase mb-1">
                 Mebel<span className="text-accent">Sova</span>
               </a>
-              <p className="text-xs text-text-muted uppercase tracking-widest">
+              <p className="text-xs text-text-muted uppercase tracking-[0.2em]">
                 Архитектура комфорта
               </p>
             </div>
 
-            <div className="flex gap-6">
-              <button onClick={() => setModal('privacy')} className="text-sm text-text-muted hover:text-white transition-colors">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+              <button onClick={() => setModal('privacy')} className="text-sm text-text-muted hover:text-white transition-colors text-left">
                 Политика конфиденциальности
               </button>
-              <button onClick={() => setModal('offer')} className="text-sm text-text-muted hover:text-white transition-colors">
+              <button onClick={() => setModal('offer')} className="text-sm text-text-muted hover:text-white transition-colors text-left">
                 Договор оферты
               </button>
             </div>
 
-            <div className="text-right">
-              <a href={`tel:${PHONE_RAW}`} className="block text-lg font-serif text-white hover:text-accent transition-colors mb-1">
+            <div className="md:text-right">
+              <a href={`tel:${PHONE_RAW}`} className="block text-xl font-serif text-white hover:text-accent transition-colors mb-1">
                 {PHONE}
               </a>
               <p className="text-xs text-text-muted">
@@ -71,7 +75,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-white/5 text-center text-xs text-text-muted opacity-50">
+          <div className="mt-8 text-center text-xs text-text-muted opacity-40">
             &copy; {new Date().getFullYear()} MebelSova. Все права защищены.
           </div>
         </div>

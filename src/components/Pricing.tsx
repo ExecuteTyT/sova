@@ -93,9 +93,9 @@ export default function Pricing() {
               key={idx} 
               variants={fadeUp}
               className={`relative p-8 md:p-10 rounded-sm border transition-all duration-500 w-[85vw] shrink-0 snap-center md:w-auto ${
-                pkg.highlight 
-                  ? 'bg-bg-dark-alt border-transparent shadow-2xl transform md:scale-[1.03]' 
-                  : 'bg-white border-border hover:border-accent/30'
+                pkg.highlight
+                  ? 'bg-bg-dark-deep border-transparent shadow-custom-lg transform md:scale-[1.04]'
+                  : 'bg-white border-border shadow-custom hover:shadow-custom-lg hover:border-accent/30'
               }`}
             >
               {pkg.badge && (

@@ -60,7 +60,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 items-start relative mt-8 lg:mt-0"
         >
-          <div className="w-full lg:col-span-3 flex flex-row lg:flex-col justify-between lg:justify-start gap-8 border-t border-border pt-6">
+          <div className="w-full lg:col-span-3 flex flex-row lg:flex-col justify-between lg:justify-start gap-8 border-t-2 border-accent pt-6">
             <div className="flex flex-col">
               <span className="font-serif text-3xl lg:text-4xl text-primary mb-1">12+</span>
               <span className="text-[10px] lg:text-xs uppercase tracking-widest text-text-secondary">Лет опыта</span>
@@ -74,13 +74,14 @@ export default function Hero() {
               <span className="text-[10px] lg:text-xs uppercase tracking-widest text-text-secondary">Рейтинг</span>
             </div>
           </div>
-          <div className="w-full lg:col-span-9 relative aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/10] overflow-hidden rounded-sm shadow-2xl z-10">
-             <img 
-               src={HERO_IMAGE_URL} 
-               alt="Интерьер" 
-               className="w-full h-full object-cover grayscale-[20%] hover:scale-105 transition-transform duration-1000"
+          <div className="w-full lg:col-span-9 relative aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/10] overflow-hidden rounded-sm shadow-custom-lg z-10 group">
+             <img
+               src={HERO_IMAGE_URL}
+               alt="Интерьер"
+               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                data-replace="true"
              />
+             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
           </div>
         </motion.div>
       </div>
