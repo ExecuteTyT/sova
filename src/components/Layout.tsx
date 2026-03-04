@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-bg text-text font-sans">
+    <div className="min-h-screen flex flex-col bg-bg text-text font-sans pb-14 md:pb-0">
       {/* Header will be added here */}
       <main className="flex-grow">
         {children}

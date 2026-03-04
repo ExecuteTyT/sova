@@ -42,7 +42,7 @@ const PACKAGES = [
   {
     name: 'Премиум',
     desc: 'Максимум качества',
-    price: 'от 450 000 ₽',
+    price: 'от 380 000 ₽',
     features: [
       'ЛДСП Egger 18мм',
       'Фасады МДФ эмаль',
@@ -148,7 +148,7 @@ export default function Pricing() {
 
         <div className="mt-16 text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-text-secondary">
-            💳 Рассрочка 0% на 3-6 месяцев. Первый взнос от 30%
+            💳 Рассрочка 0% на 3-4 месяца. Без первоначального взноса
           </p>
         </div>
       </div>

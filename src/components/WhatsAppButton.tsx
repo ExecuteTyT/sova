@@ -12,10 +12,10 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href={WHATSAPP}
+      href={`${WHATSAPP}?text=${encodeURIComponent('Здравствуйте! Хочу узнать стоимость мебели')}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-whatsapp text-white rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300 group"
+      className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 flex items-center justify-center w-14 h-14 bg-whatsapp text-white rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:scale-110 transition-transform duration-300 group"
     >
       {showPing && (
         <div className="absolute inset-0 rounded-full border-2 border-whatsapp animate-ping opacity-75" />

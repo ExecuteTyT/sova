@@ -19,6 +19,7 @@ import CTAFinal from './components/CTAFinal';
 import Footer from './components/Footer';
 import TimedPopup from './components/TimedPopup';
 import WhatsAppButton from './components/WhatsAppButton';
+import MobileCtaBar from './components/MobileCtaBar';
 import ScrollProgress from './components/ScrollProgress';
 import { sectionVariants } from './lib/motion';
 
@@ -36,12 +37,12 @@ export default function App() {
         <TrustBar />
       </motion.div>
 
-      {/* Components below have their own whileInView animations — no outer wrapper */}
-      <Portfolio />
-
       <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={sectionVariants}>
         <Quiz />
       </motion.div>
+
+      {/* Components below have their own whileInView animations — no outer wrapper */}
+      <Portfolio />
 
       <Advantages />
 
@@ -63,6 +64,7 @@ export default function App() {
 
       <TimedPopup />
       <WhatsAppButton />
+      <MobileCtaBar />
     </Layout>
   );
 }

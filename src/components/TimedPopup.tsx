@@ -25,10 +25,10 @@ export default function TimedPopup() {
 
     const handleScroll = () => {
       const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      if (scrolled > 0.5) open();
+      if (scrolled > 0.25) open();
     };
 
-    const timer = setTimeout(open, 60000);
+    const timer = setTimeout(open, 15000);
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
