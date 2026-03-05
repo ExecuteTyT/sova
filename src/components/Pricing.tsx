@@ -86,7 +86,7 @@ export default function Pricing() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-8 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible items-center -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0"
+          className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pt-5 pb-8 md:pt-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible items-center -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0"
         >
           {PACKAGES.map((pkg, idx) => (
             <motion.div 

@@ -86,7 +86,7 @@ export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) 
               ))}
               <li className="flex items-center gap-3 text-primary/90 text-sm">
                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
-                Срок изготовления: 25 дней
+                Срок изготовления: 14–21 день
               </li>
             </ul>
           </div>

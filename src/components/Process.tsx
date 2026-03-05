@@ -10,8 +10,8 @@ const STEPS = [
   { num: '02', title: 'Замер', desc: 'Бесплатно приезжаем, замеряем. Привозим образцы материалов.', time: 'День 2-3' },
   { num: '03', title: '3D-проект', desc: 'Создаём визуализацию. Правки до вашего «Идеально».', time: 'День 4-7' },
   { num: '04', title: 'Договор', desc: 'Фиксируем цену и сроки. Без доплат. Предоплата 30%.', time: 'День 8' },
-  { num: '05', title: 'Производство', desc: 'Изготавливаем в своём цеху. Фото процесса в WhatsApp.', time: '25 дней' },
-  { num: '06', title: 'Монтаж', desc: 'Доставка + установка бесплатно. Гарантия 5 лет.', time: '1-2 дня' },
+  { num: '05', title: 'Производство', desc: 'Изготавливаем в своём цеху. Фото процесса в WhatsApp.', time: '14–21 дней' },
+  { num: '06', title: 'Монтаж', desc: 'Доставка + установка бесплатно. Гарантия 2 года на кухни, 1 год — на шкафы.', time: '1-2 дня' },
 ];
 
 export default function Process() {
@@ -33,14 +33,14 @@ export default function Process() {
               От заявки до готовой мебели — 6 шагов
             </h2>
             <p className="text-text-secondary text-[16px] md:text-[18px] max-w-2xl">
-              Весь процесс занимает 30-35 дней. Вы в курсе на каждом этапе. Никаких скрытых платежей и задержек.
+              Весь процесс занимает 21–28 дней. Вы в курсе на каждом этапе. Никаких скрытых платежей и задержек.
             </p>
           </motion.div>
         </motion.div>
 
         <div className="relative">
           {/* Horizontal Line for Desktop */}
-          <div className="hidden md:block absolute top-[120px] left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
+          <div className="hidden xl:block absolute top-[120px] left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-6 gap-8 md:gap-4">
             {STEPS.map((step, index) => (

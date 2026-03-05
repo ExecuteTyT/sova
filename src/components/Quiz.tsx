@@ -275,19 +275,19 @@ export default function Quiz() {
 
                 {/* U-shape schematic */}
                 <div className="flex justify-center mb-8">
-                  <svg viewBox="0 0 200 160" className="w-48 h-36 text-accent" fill="none" stroke="currentColor" strokeWidth="2">
-                    {/* U-shape outline */}
-                    <rect x="30" y="20" width="140" height="120" rx="2" strokeDasharray="4 2" className="text-border" stroke="currentColor" />
+                  <svg viewBox="0 0 220 180" className="w-56 h-44 text-accent" fill="none" stroke="currentColor" strokeWidth="2">
+                    {/* Dashed room outline */}
+                    <rect x="40" y="30" width="140" height="130" rx="2" strokeDasharray="5 3" stroke="rgba(20,20,20,0.15)" />
                     {/* Left wall */}
-                    <line x1="30" y1="20" x2="30" y2="140" strokeWidth="3" />
+                    <line x1="40" y1="30" x2="40" y2="160" strokeWidth="4" />
                     {/* Back wall */}
-                    <line x1="30" y1="20" x2="170" y2="20" strokeWidth="3" />
+                    <line x1="40" y1="30" x2="180" y2="30" strokeWidth="4" />
                     {/* Right wall */}
-                    <line x1="170" y1="20" x2="170" y2="140" strokeWidth="3" />
+                    <line x1="180" y1="30" x2="180" y2="160" strokeWidth="4" />
                     {/* Labels */}
-                    <text x="10" y="85" fontSize="9" fill="currentColor" textAnchor="middle" transform="rotate(-90,10,85)">Лев.</text>
-                    <text x="100" y="14" fontSize="9" fill="currentColor" textAnchor="middle">Задняя</text>
-                    <text x="190" y="85" fontSize="9" fill="currentColor" textAnchor="middle" transform="rotate(90,190,85)">Прав.</text>
+                    <text x="18" y="95" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(-90,18,95)">Лев.</text>
+                    <text x="110" y="18" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle">Задняя</text>
+                    <text x="202" y="95" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(90,202,95)">Прав.</text>
                   </svg>
                 </div>
 
@@ -308,7 +308,7 @@ export default function Quiz() {
                             const dims = { ...(answers.kitchenDimensions ?? { left: '', back: '', right: '' }), [wall.key]: e.target.value };
                             setAnswers({ ...answers, kitchenDimensions: dims });
                           }}
-                          className="w-full bg-transparent border border-border rounded-sm px-4 py-3 text-text placeholder:text-text-secondary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors pr-10"
+                          className="w-full bg-transparent border border-border rounded-sm px-4 py-3 text-text placeholder:text-text-secondary focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors pr-10 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                         />
                         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-text-secondary">см</span>
                       </div>
