@@ -276,20 +276,17 @@ export default function Quiz() {
 
                 {/* U-shape schematic */}
                 <div className="flex justify-center mb-8">
-                  <svg viewBox="0 0 260 200" className="w-56 h-44 text-accent" fill="none" stroke="currentColor" strokeWidth="2" overflow="visible">
-                    {/* Dashed room outline */}
-                    <rect x="60" y="40" width="140" height="130" rx="2" strokeDasharray="5 3" stroke="rgba(20,20,20,0.15)" />
-                    {/* Left wall */}
-                    <line x1="60" y1="40" x2="60" y2="170" strokeWidth="4" />
-                    {/* Back wall */}
-                    <line x1="60" y1="40" x2="200" y2="40" strokeWidth="4" />
-                    {/* Right wall */}
-                    <line x1="200" y1="40" x2="200" y2="170" strokeWidth="4" />
-                    {/* Labels */}
-                    <text x="38" y="105" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(-90,38,105)">Лев.</text>
-                    <text x="130" y="24" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle">Задняя</text>
-                    <text x="222" y="105" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(90,222,105)">Прав.</text>
-                  </svg>
+                  <div className="flex items-center gap-5 pt-8">
+                    <span className="text-[11px] font-bold text-accent uppercase tracking-widest">Лев.</span>
+                    <div className="relative">
+                      <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 text-[11px] font-bold text-accent uppercase tracking-widest whitespace-nowrap">
+                        Задняя
+                      </span>
+                      <div className="w-36 h-24 border-t-[5px] border-l-[5px] border-r-[5px] border-b-0 border-accent rounded-t-sm" />
+                      <div className="w-full border-b-2 border-dashed border-accent/30" />
+                    </div>
+                    <span className="text-[11px] font-bold text-accent uppercase tracking-widest">Прав.</span>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
