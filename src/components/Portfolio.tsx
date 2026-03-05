@@ -70,7 +70,7 @@ export default function Portfolio() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => setSelectedItem(item)}
-                  className="w-[85vw] sm:w-[45vw] lg:w-auto flex-shrink-0 snap-start lg:snap-align-none group bg-white border border-border rounded-sm overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col"
+                  className="w-[85vw] sm:w-[45vw] lg:w-auto flex-shrink-0 snap-start lg:snap-align-none group bg-white border border-border rounded-sm overflow-hidden hover:shadow-2xl hover:-translate-y-1 hover:border-accent/30 transition-all duration-200 cursor-pointer flex flex-col"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden shrink-0">
                     <img

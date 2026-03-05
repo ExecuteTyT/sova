@@ -96,7 +96,7 @@ export default function Hero() {
                     <button
                       onClick={handleCallback}
                       disabled={phone.replace(/\D/g, '').length < 11 || loading}
-                      className="shrink-0 flex items-center justify-center w-12 h-12 bg-accent text-white rounded-sm hover:bg-accent/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                      className="shrink-0 flex items-center justify-center w-12 h-12 bg-accent text-white rounded-sm hover:bg-accent-hover hover:shadow-[0_8px_24px_rgba(107,158,138,0.5)] hover:scale-105 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
                       title="Перезвоните мне"
                     >
                       <Phone size={18} strokeWidth={1.5} />

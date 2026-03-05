@@ -223,10 +223,10 @@ export default function Quiz() {
                     <button
                       key={opt.id}
                       onClick={() => setAnswer('item', opt.id)}
-                      className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-500 flex items-center md:items-start md:flex-col gap-4 md:gap-0 ${
+                      className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-150 flex items-center md:items-start md:flex-col gap-4 md:gap-0 ${
                         answers.item === opt.id
                           ? 'border-accent bg-accent/5'
-                          : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                          : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                       }`}
                     >
                       <opt.icon strokeWidth={1.2} size={28} className="text-accent md:mb-4 shrink-0" />
@@ -254,10 +254,10 @@ export default function Quiz() {
                     <button
                       key={opt.id}
                       onClick={() => setAnswer('kitchenShape', opt.id)}
-                      className={`p-4 md:p-6 rounded-sm border-2 text-center transition-all duration-500 ${
+                      className={`p-4 md:p-6 rounded-sm border-2 text-center transition-all duration-150 ${
                         answers.kitchenShape === opt.id
                           ? 'border-accent bg-accent/5'
-                          : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                          : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                       }`}
                     >
                       <div className="font-medium text-primary text-base md:text-lg">{opt.label}</div>
@@ -338,10 +338,10 @@ export default function Quiz() {
                         <button
                           key={opt.id}
                           onClick={() => setAnswer('size', opt.id)}
-                          className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-500 flex justify-between items-center ${
+                          className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-150 flex justify-between items-center ${
                             answers.size === opt.id
                               ? 'border-accent bg-accent/5'
-                              : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                              : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                           }`}
                         >
                           <div className="font-medium text-primary text-base md:text-lg">{opt.label}</div>
@@ -367,10 +367,10 @@ export default function Quiz() {
                         <button
                           key={opt.id}
                           onClick={() => setAnswer('size', opt.id)}
-                          className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-500 flex justify-between items-center sm:block ${
+                          className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-150 flex justify-between items-center sm:block ${
                             answers.size === opt.id
                               ? 'border-accent bg-accent/5'
-                              : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                              : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                           }`}
                         >
                           <div className="font-medium text-primary text-base md:text-lg sm:mb-1">{opt.label}</div>
@@ -420,12 +420,12 @@ export default function Quiz() {
                       <button
                         key={opt.id}
                         onClick={() => setAnswer('material', opt.id)}
-                        className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-500 relative flex flex-col justify-center ${
+                        className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-150 relative flex flex-col justify-center ${
                           answers.material === opt.id
                             ? 'border-accent bg-accent/5'
                             : opt.popular
-                            ? 'border-accent/40 hover:border-accent'
-                            : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                            ? 'border-accent/40 hover:border-accent hover:bg-accent/5 hover:shadow-sm'
+                            : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                         }`}
                       >
                         {opt.popular && (
@@ -456,10 +456,10 @@ export default function Quiz() {
                     <button
                       key={opt.id}
                       onClick={() => setAnswer('timing', opt.id)}
-                      className={`p-4 md:p-6 rounded-sm border-2 text-center flex items-center justify-center gap-3 transition-all duration-500 ${
+                      className={`p-4 md:p-6 rounded-sm border-2 text-center flex items-center justify-center gap-3 transition-all duration-150 ${
                         answers.timing === opt.id
                           ? 'border-accent bg-accent/5'
-                          : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                          : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                       }`}
                     >
                       {opt.icon && <opt.icon strokeWidth={1.2} size={24} className="text-accent" />}
@@ -546,10 +546,10 @@ export default function Quiz() {
                     <button
                       key={opt.id}
                       onClick={() => setAnswer('closetShape', opt.id)}
-                      className={`p-4 md:p-6 rounded-sm border-2 text-center transition-all duration-500 ${
+                      className={`p-4 md:p-6 rounded-sm border-2 text-center transition-all duration-150 ${
                         answers.closetShape === opt.id
                           ? 'border-accent bg-accent/5'
-                          : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                          : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                       }`}
                     >
                       <div className="font-medium text-primary text-base md:text-lg mb-1">{opt.label}</div>
@@ -573,10 +573,10 @@ export default function Quiz() {
                     <button
                       key={opt.id}
                       onClick={() => setAnswer('wardrobeDoors', opt.id)}
-                      className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-500 ${
+                      className={`p-4 md:p-6 rounded-sm border-2 text-left transition-all duration-150 ${
                         answers.wardrobeDoors === opt.id
                           ? 'border-accent bg-accent/5'
-                          : 'border-border/50 hover:border-accent/40 hover:bg-bg-alt/50'
+                          : 'border-border hover:border-accent hover:bg-accent/5 hover:shadow-sm'
                       }`}
                     >
                       <div className="font-medium text-primary text-base md:text-lg mb-0.5">{opt.label}</div>

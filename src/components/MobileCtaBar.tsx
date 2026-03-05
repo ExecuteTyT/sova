@@ -15,7 +15,7 @@ export default function MobileCtaBar() {
         </a>
         <button
           onClick={() => document.getElementById('quiz')?.scrollIntoView({ behavior: 'smooth' })}
-          className="flex items-center justify-center flex-1 bg-accent text-white text-sm font-medium hover:bg-accent/90 transition-colors"
+          className="flex items-center justify-center flex-1 bg-accent text-white text-sm font-medium hover:bg-accent-hover transition-colors duration-150 active:scale-[0.98]"
         >
           Получить расчёт
         </button>
