@@ -109,7 +109,8 @@ export default function Quiz() {
         source: 'Квиз (Расчет стоимости)',
         quizData: {
           ...a,
-          calculatedPrice: range.min
+          calculatedPriceMin: range.min,
+          calculatedPriceMax: range.max,
         }
       });
 
@@ -275,19 +276,19 @@ export default function Quiz() {
 
                 {/* U-shape schematic */}
                 <div className="flex justify-center mb-8">
-                  <svg viewBox="0 0 220 180" className="w-56 h-44 text-accent" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg viewBox="0 0 260 200" className="w-56 h-44 text-accent" fill="none" stroke="currentColor" strokeWidth="2" overflow="visible">
                     {/* Dashed room outline */}
-                    <rect x="40" y="30" width="140" height="130" rx="2" strokeDasharray="5 3" stroke="rgba(20,20,20,0.15)" />
+                    <rect x="60" y="40" width="140" height="130" rx="2" strokeDasharray="5 3" stroke="rgba(20,20,20,0.15)" />
                     {/* Left wall */}
-                    <line x1="40" y1="30" x2="40" y2="160" strokeWidth="4" />
+                    <line x1="60" y1="40" x2="60" y2="170" strokeWidth="4" />
                     {/* Back wall */}
-                    <line x1="40" y1="30" x2="180" y2="30" strokeWidth="4" />
+                    <line x1="60" y1="40" x2="200" y2="40" strokeWidth="4" />
                     {/* Right wall */}
-                    <line x1="180" y1="30" x2="180" y2="160" strokeWidth="4" />
+                    <line x1="200" y1="40" x2="200" y2="170" strokeWidth="4" />
                     {/* Labels */}
-                    <text x="18" y="95" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(-90,18,95)">Лев.</text>
-                    <text x="110" y="18" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle">Задняя</text>
-                    <text x="202" y="95" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(90,202,95)">Прав.</text>
+                    <text x="38" y="105" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(-90,38,105)">Лев.</text>
+                    <text x="130" y="24" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle">Задняя</text>
+                    <text x="222" y="105" fontSize="13" fontWeight="600" fill="currentColor" textAnchor="middle" transform="rotate(90,222,105)">Прав.</text>
                   </svg>
                 </div>
 
@@ -490,7 +491,7 @@ export default function Quiz() {
                 <Button
                   fullWidth
                   size="large"
-                  onClick={handleNext}
+                  onClick={() => handleNext()}
                   disabled={!name || phone.replace(/\D/g, '').length < 11}
                   className="mb-6 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
