@@ -1,6 +1,6 @@
-export const PHONE = '+7 (XXX) XXX-XX-XX';
-export const PHONE_RAW = '+7XXXXXXXXXX';
-export const WHATSAPP = 'https://wa.me/79XXXXXXXXX';
+export const PHONE = '+7 (962) 567-98-54';
+export const PHONE_RAW = '+79625679854';
+export const WHATSAPP = 'https://wa.me/79625679854';
 export const ADDRESS = 'г. Набережные Челны, Производственный проезд, 14';
 export const WORK_HOURS = 'Ежедневно 9:00 - 20:00';
 export const BRAND_NAME = 'MEBEL-SOVA';
