@@ -31,8 +31,8 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="font-serif text-[24px] tracking-widest uppercase transition-colors duration-300 text-primary">
-          Mebel<span className="text-accent">Sova</span>
+        <a href="#" className="flex items-center">
+          <img src="/logo.svg" alt="MEBEL-SOVA" className="h-9 w-auto" />
         </a>
 
         {/* Desktop Nav */}
@@ -90,9 +90,7 @@ export default function Header() {
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
 
             <div className="flex justify-between items-center relative z-10">
-              <span className="font-serif text-[24px] tracking-widest text-primary uppercase">
-                Mebel<span className="text-accent">Sova</span>
-              </span>
+              <img src="/logo.svg" alt="MEBEL-SOVA" className="h-8 w-auto" />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-primary p-3 bg-black/5 hover:bg-black/10 rounded-full transition-colors"
