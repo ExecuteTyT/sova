@@ -41,7 +41,7 @@ export default function Hero() {
           >
             <motion.div variants={fadeUp} className="mb-6 flex items-center gap-4">
               <div className="h-px w-12 bg-accent"></div>
-              <span className="text-xs uppercase tracking-[0.2em] text-accent font-medium">Собственное производство · Набережные Челны</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-accent font-medium">Собственное производство · Набережные Челны · Нижнекамск · Казань</span>
             </motion.div>
             <motion.h1 variants={fadeUp} className="font-serif text-[50px] sm:text-[80px] lg:text-[110px] leading-[0.9] tracking-[-0.02em] text-primary uppercase">
               Мебель <br />
@@ -135,9 +135,9 @@ export default function Hero() {
           <div className="w-full lg:col-span-9 relative aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/10] overflow-hidden rounded-sm shadow-custom-lg z-10 group">
             <img
               src={HERO_IMAGE_URL}
-              alt="Интерьер"
+              alt="Современная кухня на заказ — белые фасады и дуб"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-              data-replace="true"
+              fetchPriority="high"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
           </div>
