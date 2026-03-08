@@ -54,7 +54,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     id: 2,
     title: 'Серая угловая кухня, встроенная техника',
     price: '240 000 ₽',
-    tags: ['МДФ плёнка', 'Blum', 'Камень'],
+    tags: ['МДФ плёнка', 'Samet', 'Камень'],
     category: 'kitchen',
     img: P('kitchen-2-IMG_2293.png'),
     images: [
@@ -69,7 +69,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 3,
     title: 'Белая угловая кухня, мрамор, чёрные ручки',
-    price: '265 000 ₽',
+    price: '285 000 ₽',
     tags: ['МДФ эмаль', 'Blum', 'Подсветка'],
     category: 'kitchen',
     img: P('kitchen-3-IMG_7480.JPG'),
@@ -100,8 +100,8 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 5,
     title: 'Двухтонная кухня: белый + бежевый рифлёный МДФ',
-    price: '255 000 ₽',
-    tags: ['МДФ эмаль', 'Камень', 'Подсветка'],
+    price: '310 000 ₽',
+    tags: ['МДФ плёнка', 'Подсветка'],
     category: 'kitchen',
     img: P('kitchen-5-IMG_6928.JPG'),
     images: [
@@ -116,8 +116,8 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 6,
     title: 'Угловая кухня с золотой фурнитурой',
-    price: '280 000 ₽',
-    tags: ['МДФ плёнка', 'Blum', 'Золото'],
+    price: '300 000 ₽',
+    tags: ['МДФ плёнка', 'Blum', 'Золото', 'HPL панель'],
     category: 'kitchen',
     img: P('kitchen-6-photo_2026-03-05_09-33-59.jpg'),
     images: [
@@ -137,8 +137,8 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 7,
     title: 'Классика в бежевом: рифлёные фасады, золотые ручки',
-    price: '320 000 ₽',
-    tags: ['МДФ плёнка', 'Blum', 'Золото'],
+    price: '700 000 ₽',
+    tags: ['МДФ эмаль', 'Blum', 'Золото', 'Кварц агломерат'],
     category: 'kitchen',
     img: P('kitchen-7-IMG_3470.JPG'),
     images: [
@@ -173,8 +173,8 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 9,
     title: 'Бежевый распашной шкаф с чёрными ручками',
-    price: '85 000 ₽',
-    tags: ['МДФ плёнка', 'Blum', 'Матт'],
+    price: '120 000 ₽',
+    tags: ['ЛДСП Ламарти', 'Samet', 'Матт'],
     category: 'wardrobe',
     img: P('closet-1-photo_2026-03-05_09-55-59.jpg'),
     images: [
@@ -191,8 +191,8 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 10,
     title: 'Шкаф + рабочий стол, серый матт',
-    price: '95 000 ₽',
-    tags: ['МДФ плёнка', 'Egger', 'Матт'],
+    price: '110 000 ₽',
+    tags: ['ЛДСП', 'Samet', 'Матт'],
     category: 'wardrobe',
     img: P('closet-3-instories_36A84924-DE2B-4A44-8418-D4D587230D2F.png'),
     images: [
@@ -205,8 +205,8 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 11,
     title: 'Шкаф-купе: бежевый с рифлёными вставками',
-    price: '75 000 ₽',
-    tags: ['МДФ плёнка', 'Матт', 'Купе'],
+    price: '110 000 ₽',
+    tags: ['Двери купе в профиле', 'Матт'],
     category: 'wardrobe',
     img: P('closet-5-IMG_2214.png'),
     images: [
@@ -225,11 +225,11 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     price: '120 000 ₽',
     tags: ['ЛДСП Egger', 'Blum', 'Графит'],
     category: 'closet',
-    img: P('closet-2-IMG_6980.JPG'),
+    img: P('closet-2-IMG_6983.JPG'),
     images: [
+      P('closet-2-IMG_6980.JPG'),
       P('closet-2-IMG_6981.JPG'),
       P('closet-2-IMG_6982.JPG'),
-      P('closet-2-IMG_6983.JPG'),
       P('closet-2-IMG_6984.JPG'),
       P('closet-2-IMG_6985.JPG'),
       P('closet-2-IMG_6986.JPG'),
@@ -240,7 +240,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     id: 13,
     title: 'Гардеробная мокко с золотыми ручками',
     price: '145 000 ₽',
-    tags: ['МДФ плёнка', 'Blum', 'Золото'],
+    tags: ['ЛДСП Egger', 'Blum', 'Золото'],
     category: 'closet',
     img: P('closet-4-IMG_2204.JPG'),
     images: [
@@ -258,7 +258,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   {
     id: 14,
     title: 'Детская для девочки: арка, кровать с изголовьем',
-    price: '165 000 ₽',
+    price: '130 000 ₽',
     tags: ['МДФ эмаль', 'Blum', 'Дизайн'],
     category: 'children',
     img: P("children's room-1-kiIMG_2755.JPG"),
@@ -271,7 +271,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
   },
   {
     id: 15,
-    title: 'Подростковая комната: диван-кровать и рабочая зона',
+    title: 'Подростковая комната: диван и кровать, рабочая зона',
     price: '180 000 ₽',
     tags: ['МДФ плёнка', 'Egger', 'Комплект'],
     category: 'children',
