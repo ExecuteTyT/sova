@@ -7,7 +7,7 @@ export const BRAND_NAME = 'MEBEL-SOVA';
 export const BRAND_DESCRIPTOR = 'мебель на заказ';
 
 export const HERO_IMAGE_URL = '/images/portfolio/Gemini_Generated_Image_narfibnarfibnarf.png';
-export const CRAFTSMAN_IMAGE_URL = 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80';
+export const CRAFTSMAN_IMAGE_URL = '/images/portfolio/Gemini_Generated_Image_c6j5awc6j5awc6j5.png';
 export const PRODUCTION_IMAGES = [
     'https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&w=800&q=80',
     'https://images.unsplash.com/photo-1622372738946-62e02505feb3?auto=format&fit=crop&w=800&q=80',
@@ -28,6 +28,8 @@ export type PortfolioItem = {
   img: string;
   /** Additional images for the modal gallery (optional — if empty, modal shows only img) */
   images?: string[];
+  /** CSS object-position for the card thumbnail (default: 'center') */
+  imgPosition?: string;
 };
 
 const P = (f: string) => `/images/portfolio/${f}`;
@@ -226,6 +228,7 @@ export const PORTFOLIO_DATA: PortfolioItem[] = [
     tags: ['ЛДСП Egger', 'Blum', 'Графит'],
     category: 'closet',
     img: P('closet-2-IMG_6983.JPG'),
+    imgPosition: 'center 75%',
     images: [
       P('closet-2-IMG_6980.JPG'),
       P('closet-2-IMG_6981.JPG'),

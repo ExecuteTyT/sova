@@ -132,11 +132,12 @@ export default function Hero() {
               <span className="text-[10px] lg:text-xs uppercase tracking-widest text-text-secondary">Рейтинг</span>
             </div>
           </div>
-          <div className="w-full lg:col-span-9 relative aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/10] overflow-hidden rounded-sm shadow-custom-lg z-10 group">
+          <div className="w-full lg:col-span-9 relative aspect-[16/9] sm:aspect-[21/9] lg:aspect-[16/9] overflow-hidden rounded-sm shadow-custom-lg z-10 group">
             <img
               src={HERO_IMAGE_URL}
               alt="Современная кухня на заказ — белые фасады и дуб"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+              style={{ objectPosition: 'center 55%' }}
               fetchPriority="high"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />

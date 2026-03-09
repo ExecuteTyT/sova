@@ -77,6 +77,7 @@ export default function Portfolio() {
                       src={item.img}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      style={item.imgPosition ? { objectPosition: item.imgPosition } : undefined}
                       loading="lazy"
                     />
                     {/* Glassmorphism Price Tag */}

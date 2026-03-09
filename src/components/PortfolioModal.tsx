@@ -43,8 +43,8 @@ export default function PortfolioModal({ item, onClose, onLeadCapture }: Props) 
           <div className="flex-1 overflow-y-auto scrollbar-hide pb-[90px] md:pb-0 md:overflow-hidden flex flex-col md:flex-row">
             {/* Left: Gallery */}
             <div className="w-full md:w-3/5 flex flex-col bg-bg-alt">
-          <div className="relative aspect-[4/3] w-full overflow-hidden bg-bg-alt">
-            <img src={mainImg} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1a1a1a]">
+            <img src={mainImg} alt={item.title} className="w-full h-full object-contain" loading="lazy" />
           </div>
           {hasThumbnails && (
             <div className="flex gap-3 p-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory bg-bg">
